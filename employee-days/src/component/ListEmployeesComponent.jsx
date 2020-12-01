@@ -44,7 +44,7 @@ class ListEmployeesComponent extends Component {
                                 <th>Id</th>
                                 <th>Type</th>
                                 <th>Work Days</th>
-                                <th> Vaction Days</th>
+                                <th>Vaction Days</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -58,7 +58,7 @@ class ListEmployeesComponent extends Component {
                                     <td>{employee.vacationDays}</td>
                                     <td><button className="btn btn-success"
                                      onClick={() => this.updateEmployeeClicked(employee.employee_id)}>Update</button></td>
-                                    <tr>{employee.errorMessage}</tr>
+                                    <div>{employee.errorMessage}</div>
                                 </tr>
                                 
                             )
