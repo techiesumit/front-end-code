@@ -9,8 +9,6 @@ class EmployeeComponent extends Component {
 
         this.state = {
             emp_id: this.props.match.params.employee_id,
-            init_workdays: 0,
-            init_vacationdays: 0,
             employee: []
         }
 
@@ -32,8 +30,7 @@ class EmployeeComponent extends Component {
                 response => {
                     // console.log("Response from Service "+ response.data);
                     this.setState({ employee: response.data });
-                    this.setState({ init_workdays: response.data.workDays });
-                    this.setState({ init_vacationdays: response.data.vacationDays });
+                    
                 })
     }
 
@@ -45,11 +42,11 @@ class EmployeeComponent extends Component {
     }
     validate(values) {
         let errors = {}
-        if (values.workDays < 0 || values.workDays > 260 || values.workDays < this.state.init_workdays) {
+        if (values.workDays < 0 ) {
             errors.workDays = 'Invalid Value'
         }
         // We can add validation for each type of employee as well if needed
-        if (values.vacationDays < 0 || values.vacationDays > 30 || values.vacationDays < this.state.init_vacationdays) {
+        if (values.vacationDays < 0 ) {
             errors.vacationDays = 'Invalid Value'
         }
 
