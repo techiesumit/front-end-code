@@ -35,7 +35,7 @@ class EmployeeComponent extends Component {
     }
 
     onSubmit(values) {
-        
+      
         EmployeesDataService.updateVacationAndWorkDays(values.employee_id, values.vacationDays, values.workDays)
             .then(() => this.props.history.push('/employees'));
 
@@ -49,10 +49,7 @@ class EmployeeComponent extends Component {
         if (values.vacationDays < 0 ) {
             errors.vacationDays = 'Invalid Value'
         }
-
-
         return errors
-
     }
 
     render() {
@@ -66,8 +63,8 @@ class EmployeeComponent extends Component {
                         initialValues={{
                             employee_id: this.state.employee.employee_id,
                             employee_type: this.state.employee.employee_type,
-                            workDays: this.state.employee.workDays,
-                            vacationDays: this.state.employee.vacationDays
+                            workDays: 0,
+                            vacationDays: 0
                         }}
                         onSubmit={this.onSubmit}
                         validateOnChange={false}
@@ -100,8 +97,6 @@ class EmployeeComponent extends Component {
                         }
                     </Formik>
                 </div>
-
-
             </div>
 
         )
